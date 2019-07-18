@@ -7,6 +7,14 @@
   grid-template-columns: 100px auto;
 }
 
+@media only screen and (max-width: 600px) {
+  .ArticleCard {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr;
+    display: none;
+  }
+}
+
 .ArticleCard a {
   text-decoration: none;
   color: var(--nc-red);

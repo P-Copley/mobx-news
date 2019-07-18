@@ -9,13 +9,15 @@ import PostArticle from './components/PostArticle';
 import Error from './components/Error';
 import './css/App.css';
 import * as api from './utils/api';
+// token: '167840afdc167824123156'
 
 class App extends Component {
   state = {
-    topics: []
+    topics: [],
+    user: null
   };
   render() {
-    const { topics } = this.state;
+    const { topics, user } = this.state;
     return (
       <div className="App">
         <Heading />
@@ -24,13 +26,19 @@ class App extends Component {
           <Articles path="/" />
           <Articles path="/topics/:topic" />
           <ArticlePage path="/articles/:article_id" />
-          <PostArticle path="/newarticle" />
-          <Error path="/error" />
+          <PostArticle path="/newarticle" user={user} />
+          <Error default path="/error" />
         </Router>
         <Footer />
       </div>
     );
   }
+
+  setUser = user => {
+    this.setState({
+      user
+    });
+  };
 
   componentDidMount() {
     this.fetchTopics();
@@ -46,3 +54,12 @@ class App extends Component {
 }
 
 export default App;
+
+/*
+media queries
+404 errors
+updating state on select dropdown
+users
+hosting
+pages
+*/

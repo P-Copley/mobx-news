@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getArticle } from '../utils/api';
+import { navigate } from '@reach/router';
 
 class ArticlePage extends Component {
   state = {
@@ -20,12 +21,35 @@ class ArticlePage extends Component {
       </div>
     );
   }
-  componentDidMount() {
+  // componentDidMount() {
+  //   const { article_id } = this.props;
+  //   getArticle(article_id)
+  //     .then(article => {
+  //       this.setState({ article });
+  //     })
+  //     .catch(() => {
+  //       navigate('/error', {
+  //         replace: true,
+  //         state: {
+  //           message: 'Article not found'
+  //         }
+  //       });
+  //     });
+  // }
+
+  componentDidMount = async () => {
     const { article_id } = this.props;
-    getArticle(article_id).then(article => {
+    try {
+      const article = await getArticle(article_id);
       this.setState({ article });
-    });
-  }
+    } catch (err) {
+      navigate('/error', {
+        state: {
+          message: err.msg
+        }
+      });
+    }
+  };
 }
 
 export default ArticlePage;
