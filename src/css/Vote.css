@@ -1,0 +1,10 @@
+.Vote button {
+  background-color: var(--nc-red);
+  border: 1px solid var(--nc-black);
+  color: white;
+  border-radius: 20%;
+}
+
+.Vote button:disabled {
+  background-color: rgb(255, 154, 154);
+}

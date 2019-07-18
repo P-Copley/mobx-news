@@ -1,0 +1,16 @@
+.Nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: var(--nc-black);
+}
+
+.Nav a {
+  color: white;
+  transition: 200ms;
+}
+
+.Nav a:hover {
+  color: var(--nc-red);
+  transition: 200ms;
+}

@@ -1,0 +1,39 @@
+:root {
+  --nc-red: rgb(186, 31, 49);
+  --nc-black: rgb(32, 40, 41);
+}
+
+.nc-red {
+  color: var(--nc-red);
+}
+
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 2fr 1fr 12fr 1fr;
+  grid-template-areas:
+    'header'
+    'nav'
+    'main'
+    'footer';
+}
+
+.header {
+  grid-area: header;
+  /* border: 1px solid rgb(0, 255, 255); */
+}
+.nav {
+  grid-area: nav;
+  /* border: 1px solid rgb(0, 255, 0); */
+}
+.main {
+  grid-area: main;
+  border: 1px solid rgb(255, 0, 0);
+  overflow-y: scroll;
+}
+.footer {
+  grid-area: footer;
+  border: 1px solid rgb(255, 0, 255);
+}
