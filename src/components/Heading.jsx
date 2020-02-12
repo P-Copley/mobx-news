@@ -6,7 +6,7 @@ const Heading = props => {
     <header className="header Heading">
       <h1>
         <span className="nc-red">{'<'}</span>
-        <span> Go away netlify </span>
+        <span> NC News </span>
         <span className="nc-red">{'/>'}</span>
       </h1>
     </header>

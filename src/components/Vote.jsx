@@ -8,16 +8,16 @@ class Vote extends Component {
     err: null
   };
   render() {
-    const { votes } = this.props;
+    const { votes, vote, article } = this.props;
     const { voteChange, err } = this.state;
     return (
       <div>
         {err ? <p>Oops, something went wrong</p> : null}
-        <button onClick={() => this.vote(1)} disabled={voteChange === 1}>
+        <button onClick={() => vote(article, 1)} disabled={voteChange === 1}>
           +
         </button>
         <p>{votes + voteChange}</p>
-        <button onClick={() => this.vote(-1)} disabled={voteChange === -1}>
+        <button onClick={() => vote(article, -1)} disabled={voteChange === -1}>
           -
         </button>
       </div>

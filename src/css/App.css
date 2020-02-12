@@ -30,10 +30,13 @@
 }
 .main {
   grid-area: main;
-  border: 1px solid rgb(255, 0, 0);
+  /* border: 1px solid rgb(255, 0, 0); */
   overflow-y: scroll;
 }
 .footer {
   grid-area: footer;
-  border: 1px solid rgb(255, 0, 255);
+  margin-top: 1rem;
+  padding: 1rem;
+  border-top: 1px solid lightgray;
+  box-shadow: 2px 2px 2px 3px lightgray;
 }

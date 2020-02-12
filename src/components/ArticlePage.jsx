@@ -8,8 +8,10 @@ class ArticlePage extends Component {
   };
   render() {
     const {
-      article: { title, body }
+      article: { title, body },
+      article
     } = this.state;
+    console.log(article);
     return (
       <div>
         {this.props.location.state &&

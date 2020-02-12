@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArticleCard from './ArticleCard';
+import Stats from './Stats';
 import * as api from '../utils/api';
 import '../css/Articles.css';
 
@@ -11,19 +12,39 @@ class Articles extends Component {
   render() {
     const { topic } = this.props;
     const { articles } = this.state;
-    console.log(articles.length);
     return (
       <main>
         <h2>{topic ? `Articles on ${topic}` : 'All articles'}</h2>
+        <Stats articles={articles} />
         <ul>
           {articles.map(article => (
-            <ArticleCard article={article} key={article.article_id} />
+            <ArticleCard
+              article={article}
+              key={article.article_id}
+              vote={this.vote}
+            />
           ))}
         </ul>
         <button onClick={this.nextPage}>More pls</button>
       </main>
     );
   }
+
+  vote = (articleToUpdate, increment) => {
+    api.vote(articleToUpdate.article_id, increment, 'articles');
+    this.setState(state => ({
+      articles: state.articles.map(article => {
+        if (article === articleToUpdate) {
+          return {
+            ...articleToUpdate,
+            votes: article.votes + increment
+          };
+        }
+        return article;
+      })
+    }));
+  };
+
   componentDidMount() {
     this.fetchArticles();
   }
