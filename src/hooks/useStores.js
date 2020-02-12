@@ -1,3 +1,8 @@
+import React from 'react';
+import { Articles } from '../stores';
+
+const StoreContext = React.createContext({ articles: new Articles() });
+
 export const useStores = () => {
-  // initialise all stores and share through context
+  return React.useContext(StoreContext);
 };
