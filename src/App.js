@@ -9,7 +9,6 @@ import PostArticle from './components/PostArticle';
 import Error from './components/Error';
 import './css/App.css';
 import * as api from './utils/api';
-// token: '167840afdc167824123156'
 
 class App extends Component {
   state = {
@@ -54,12 +53,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*
-media queries
-404 errors
-updating state on select dropdown
-users
-hosting
-pages
-*/

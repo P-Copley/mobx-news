@@ -32,7 +32,7 @@ export const postArticle = async article => {
   return data;
 };
 
-export const vote = async (id, inc_votes, section) => {
+export const vote = async (id, inc_votes, section = 'articles') => {
   const { data } = await axios.patch(`${BASE_URL}/${section}/${id}`, {
     inc_votes
   });

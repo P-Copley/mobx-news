@@ -31,7 +31,7 @@ class Articles extends Component {
   }
 
   vote = (articleToUpdate, increment) => {
-    api.vote(articleToUpdate.article_id, increment, 'articles');
+    api.vote(articleToUpdate.article_id, increment);
     this.setState(state => ({
       articles: state.articles.map(article => {
         if (article === articleToUpdate) {
