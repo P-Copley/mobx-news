@@ -1,19 +1,14 @@
 import React from 'react';
+import articlesStore from '../stores/articles';
+import { useObserver } from 'mobx-react';
 
-const Stats = ({ articles }) => {
-  console.log(articles);
-  const totalVotes = articles.reduce(
-    (total, article) => total + article.votes,
-    0
-  );
-
-  const contributorCount = 3;
-  return (
+const Stats = () => {
+  return useObserver(() => (
     <section>
       <h3>Stats</h3>
-      <p>Total Votes: {totalVotes}</p>
+      <p>Total Votes: {articlesStore.totalVotes}</p>
     </section>
-  );
+  ));
 };
 
 export default Stats;

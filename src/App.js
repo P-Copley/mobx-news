@@ -9,7 +9,6 @@ import PostArticle from './components/PostArticle';
 import Error from './components/Error';
 import './css/App.css';
 import * as api from './utils/api';
-// token: '167840afdc167824123156'
 
 class App extends Component {
   state = {

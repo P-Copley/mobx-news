@@ -3,6 +3,8 @@ import ArticleCard from './ArticleCard';
 import Stats from './Stats';
 import * as api from '../utils/api';
 import '../css/Articles.css';
+import articlesStore from '../stores/articles';
+import { Observer } from 'mobx-react';
 
 class Articles extends Component {
   state = {
@@ -11,22 +13,25 @@ class Articles extends Component {
   };
   render() {
     const { topic } = this.props;
-    const { articles } = this.state;
     return (
-      <main>
-        <h2>{topic ? `Articles on ${topic}` : 'All articles'}</h2>
-        <Stats articles={articles} />
-        <ul>
-          {articles.map(article => (
-            <ArticleCard
-              article={article}
-              key={article.article_id}
-              vote={this.vote}
-            />
-          ))}
-        </ul>
-        <button onClick={this.nextPage}>More pls</button>
-      </main>
+      <Observer>
+        {() => (
+          <main>
+            <h2>{topic ? `Articles on ${topic}` : 'All articles'}</h2>
+            <Stats />
+            <ul>
+              {articlesStore.articles.map(article => (
+                <ArticleCard
+                  article={article}
+                  key={article.article_id}
+                  vote={this.vote}
+                />
+              ))}
+            </ul>
+            <button onClick={this.nextPage}>More pls</button>
+          </main>
+        )}
+      </Observer>
     );
   }
 
@@ -75,7 +80,8 @@ class Articles extends Component {
   fetchArticles = () => {
     const { topic } = this.props;
     api.getArticles(topic).then(articles => {
-      this.setState({ articles, p: 1 });
+      // this.setState({ articles, p: 1 });
+      articlesStore.articles = articles;
     });
   };
 }
