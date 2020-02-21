@@ -11,12 +11,12 @@ import { observable, decorate, computed } from 'mobx';
 //   comment_count = '0';
 // }
 
-export class Articles {
-  articles = [];
-  get totalVotes() {
-    return this.articles.reduce((total, article) => total + article.votes, 0);
-  }
-}
+// export class Articles {
+//   articles = [];
+//   get totalVotes() {
+//     return this.articles.reduce((total, article) => total + article.votes, 0);
+//   }
+// }
 
 // export class Article {
 //   article_id;
@@ -29,11 +29,17 @@ export class Articles {
 //   comment_count;
 // }
 
-decorate(Articles, {
-  articles: observable,
-  totalVotes: computed
-});
+// decorate(Articles, {
+//   articles: observable,
+//   totalVotes: computed
+// });
 
 // decorate(Article);
 
-export default new Articles();
+// export default new Articles();
+
+import Articles from '../models/articles';
+
+const articlesStore = Articles.create();
+
+export default articlesStore;

@@ -6,7 +6,7 @@ const Stats = () => {
   return useObserver(() => (
     <section>
       <h3>Stats</h3>
-      <p>Total Votes: {articlesStore.totalVotes}</p>
+      <p>Total Votes: {articlesStore.getTotalVotes()}</p>
     </section>
   ));
 };

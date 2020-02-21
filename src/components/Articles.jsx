@@ -81,7 +81,8 @@ class Articles extends Component {
     const { topic } = this.props;
     api.getArticles(topic).then(articles => {
       // this.setState({ articles, p: 1 });
-      articlesStore.articles = articles;
+      // articlesStore.articles = articles;
+      articlesStore.setArticles(articles);
     });
   };
 }

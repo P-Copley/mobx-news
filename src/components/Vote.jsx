@@ -4,7 +4,7 @@ import * as api from '../utils/api';
 const Vote = ({ article, votes }) => {
   const vote = increment => {
     api.vote(article.article_id, increment);
-    article.votes += increment;
+    article.vote(increment);
   };
   return (
     <div>
