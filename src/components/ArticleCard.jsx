@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import '../css/ArticleCard.css';
-import Vote from './Vote';
 import { useObserver } from 'mobx-react';
+import Vote from './Vote';
+import '../css/ArticleCard.css';
 
 const ArticleCard = ({ article, vote }) => {
+  // Observe changes to the articlesStore using a hook
   return useObserver(() => (
     <li className="ArticleCard">
       <Vote
         votes={article.votes}
         id={article.article_id}
         section="articles"
-        vote={vote}
         article={article}
       />
       <div>

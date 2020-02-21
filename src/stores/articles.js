@@ -1,16 +1,6 @@
 import { observable, decorate, computed } from 'mobx';
 
-// class Article {
-//   article_id = 0;
-//   title = '';
-//   body = '';
-//   votes = 0;
-//   created_at = '';
-//   author = '';
-//   topic = '';
-//   comment_count = '0';
-// }
-
+// create our store to hold articles
 export class Articles {
   articles = [];
   get totalVotes() {
@@ -18,22 +8,12 @@ export class Articles {
   }
 }
 
-// export class Article {
-//   article_id;
-//   title;
-//   body;
-//   votes;
-//   created_at;
-//   author;
-//   topic;
-//   comment_count;
-// }
-
+// make properties in our store observable
 decorate(Articles, {
   articles: observable,
   totalVotes: computed
 });
 
-// decorate(Article);
+const articlesStore = new Articles();
 
-export default new Articles();
+export default articlesStore;

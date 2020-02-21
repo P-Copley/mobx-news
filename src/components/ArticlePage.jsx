@@ -8,10 +8,8 @@ class ArticlePage extends Component {
   };
   render() {
     const {
-      article: { title, body },
-      article
+      article: { title, body }
     } = this.state;
-    console.log(article);
     return (
       <div>
         {this.props.location.state &&
@@ -23,21 +21,6 @@ class ArticlePage extends Component {
       </div>
     );
   }
-  // componentDidMount() {
-  //   const { article_id } = this.props;
-  //   getArticle(article_id)
-  //     .then(article => {
-  //       this.setState({ article });
-  //     })
-  //     .catch(() => {
-  //       navigate('/error', {
-  //         replace: true,
-  //         state: {
-  //           message: 'Article not found'
-  //         }
-  //       });
-  //     });
-  // }
 
   componentDidMount = async () => {
     const { article_id } = this.props;

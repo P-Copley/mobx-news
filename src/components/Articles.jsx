@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { Observer } from 'mobx-react';
 import ArticleCard from './ArticleCard';
 import Stats from './Stats';
 import * as api from '../utils/api';
 import '../css/Articles.css';
 import articlesStore from '../stores/articles';
-import { Observer } from 'mobx-react';
 
 class Articles extends Component {
   state = {
@@ -14,6 +14,7 @@ class Articles extends Component {
   render() {
     const { topic } = this.props;
     return (
+      // Observe changes to the articlesStore using a Higher order component
       <Observer>
         {() => (
           <main>
